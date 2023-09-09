@@ -19,7 +19,7 @@ generateRouter(app, kafka.producer());
     await consumer.subscribe({ topic: "main-topic", fromBeginning: true });
     await consumer.run({
         eachMessage: async (payload) => {
-            console.log(payload.message);
+            console.log(payload.message.value?.toString());
         },
     });
 })();
